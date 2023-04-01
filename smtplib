@@ -1,0 +1,17 @@
+import smtplib
+
+from email.mime.text import MIMEText
+
+msg = MIMEText('Hello, world!')
+
+msg['Subject'] = 'Test Email'
+
+msg['From'] = 'sender@example.com'
+
+msg['To'] = 'recipient@example.com'
+
+s = smtplib.SMTP('smtp.example.com')
+
+s.sendmail('sender@example.com', ['recipient@example.com'], msg.as_string())
+
+s.quit()
